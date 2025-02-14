@@ -3,21 +3,26 @@ package org.example.entity;
 import java.util.UUID;
 
 public class Material {
-    private final UUID id;
-    private final String title;
-    private boolean isBorrowed;
+    public final UUID id;
+    public final String title;
+    public boolean isBorrowed;
+    public String materialType;
 
     public Material(String tittle) {
         this.id = UUID.randomUUID();
         this.title = tittle;
         this.isBorrowed = false;
     }
-     public boolean isBorrowed(){
-        return isBorrowed;
+     public String getMaterialStatus(){
+        if (isBorrowed){
+            return "Borrowed";
+        }
+
+        return "Available";
      }
 
      public void borrowMaterial(){
-        if (isBorrowed()){
+        if (!isBorrowed){
             System.out.println("Successfully to borrow " + title);
             isBorrowed = true;
         } else {
@@ -29,5 +34,9 @@ public class Material {
          System.out.println("Thank you for returning material " + title);
          isBorrowed = false;
      }
+
+    public void displayMaterial() {
+
+    }
 
 }
