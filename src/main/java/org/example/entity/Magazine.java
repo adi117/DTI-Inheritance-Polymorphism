@@ -1,14 +1,14 @@
 package org.example.entity;
 
 public class Magazine extends Material{
-    public Magazine(String tittle) {
-        super(tittle);
+    public Magazine(String title, int stock) {
+        super(title, stock);
         this.materialType = "Magazine";
     }
 
     @Override
     public void displayMaterial(){
-        System.out.println(title + " || " + materialType + " || " + getMaterialStatus());
+        System.out.println(title + " || " + materialType + " || " +  stock + " available");
 //        System.out.println("ISBN : " + id);
     }
 
