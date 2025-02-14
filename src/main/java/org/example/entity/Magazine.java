@@ -19,4 +19,9 @@ public class Magazine extends Material{
         System.out.println("Material type : " + materialType);
         System.out.println("Status : " + getMaterialStatus());
     }
+
+    @Override
+    public String getTitle(){
+        return title;
+    }
 }

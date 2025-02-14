@@ -32,7 +32,7 @@ public class Main {
         while (true){
             Material.displayAllMaterial(materialMap);
             while (selectedMaterial == null){
-                System.out.println("----");
+                System.out.println("---- " + selectedMaterial.title + " ---");
                 System.out.print("What material you want to borrow? ");
                 String material = scanner.nextLine();
 

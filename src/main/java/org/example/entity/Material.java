@@ -27,7 +27,7 @@ public class Material {
 
      public void borrowMaterial(){
         if (isAvailable){
-            System.out.println("Successfully to borrow " + title);
+            System.out.println("Successfully to borrow " + '"' + title + '"');
             --stock;
             updateStockStatus();
         } else {
@@ -53,6 +53,10 @@ public class Material {
              System.out.print(materialNumber + ". ");
              material.displayMaterial();
          }
+     }
+
+     public String getTitle(){
+        return title;
      }
 
     public void displayMaterial() {
