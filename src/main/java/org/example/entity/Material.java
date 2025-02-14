@@ -39,4 +39,8 @@ public class Material {
 
     }
 
+    public void displayDetail() {
+
+    }
+
 }

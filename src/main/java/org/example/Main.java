@@ -15,20 +15,23 @@ public class Main {
     public static void main(String[] args) {
         Map<String, Material> materialMap = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
-        materialMap.put("Devil all the time", new Book("Devil all the time"));
-        materialMap.put("Rahvayana", new Book("Rahvayana"));
-        materialMap.put("Man search for meaning", new Book("Man search for meaning"));
-        materialMap.put("Bobo", new Magazine("Bobo"));
-        materialMap.put("National Geographic", new Magazine("National Geographic"));
-        materialMap.put("Tempo", new Magazine("Tempo"));
-        materialMap.put("Medical", new Journal("Medical"));
-        materialMap.put("Economic", new Journal("Economic"));
-        materialMap.put("Technology", new Journal("Technology"));
+        materialMap.put("1", new Book("Devil all the time"));
+        materialMap.put("2", new Book("Rahvayana"));
+        materialMap.put("3", new Book("Man search for meaning"));
+        materialMap.put("4", new Magazine("Bobo"));
+        materialMap.put("5", new Magazine("National Geographic"));
+        materialMap.put("6", new Magazine("Tempo"));
+        materialMap.put("7", new Journal("Medical"));
+        materialMap.put("8", new Journal("Economic"));
+        materialMap.put("9", new Journal("Technology"));
 
         Material selectedMaterial = null;
 
+        int materialNumber = 0;
         System.out.println("--- Material List ---");
         for (Material material : materialMap.values()){
+            materialNumber++;
+            System.out.print(materialNumber + ". ");
             material.displayMaterial();
         }
 
@@ -51,6 +54,7 @@ public class Main {
             System.out.println("Do you want to borrow or return :");
             System.out.println("1. Borrow");
             System.out.println("2. Return");
+            System.out.println("3. Display");
             System.out.println("q. Quit");
             String action = scanner.nextLine();
 
@@ -60,6 +64,9 @@ public class Main {
                     break;
                 case "2" :
                     selectedMaterial.returnMaterial();
+                    break;
+                case "3" :
+                    selectedMaterial.displayDetail();
                     break;
                 case "q" :
                     return;
