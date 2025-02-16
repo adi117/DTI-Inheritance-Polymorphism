@@ -6,6 +6,10 @@ public class Journal extends Material{
         this.materialType = "Journal";
     }
 
+    public Journal() {
+
+    }
+
     @Override
     public void displayMaterial(){
         System.out.println(title + " || " + materialType + " || " + stock + " available");
@@ -18,10 +22,5 @@ public class Journal extends Material{
         System.out.println("ISBN : " + id);
         System.out.println("Material type : " + materialType);
         System.out.println("Status : " + getMaterialStatus());
-    }
-
-    @Override
-    public String getTitle(){
-        return title;
     }
 }

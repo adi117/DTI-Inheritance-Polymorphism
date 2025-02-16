@@ -15,6 +15,7 @@ public class Main {
     public static void main(String[] args) {
         Map<String, Material> materialMap = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
+
         materialMap.put("1", new Book("Devil all the time", 10));
         materialMap.put("2", new Book("Rahvayana", 15));
         materialMap.put("3", new Book("Man search for meaning", 2));
@@ -30,11 +31,46 @@ public class Main {
         selectedMaterial = null;
 
         while (true){
+            String title;
+            String materialType;
+            int materialStock;
+
             Material.displayAllMaterial(materialMap);
+            System.out.println("0. Add new material");
             while (selectedMaterial == null){
-                System.out.println("---- " + selectedMaterial.title + " ---");
+                System.out.println("----");
                 System.out.print("What material you want to borrow? ");
                 String material = scanner.nextLine();
+
+                while(material.equals("0")){
+                    System.out.print("Title : ");
+                    title = scanner.nextLine();
+                    System.out.print("Type (Book / Magazine / Journal) : ");
+                    materialType = scanner.nextLine();
+                    System.out.print("Quantity / stock : ");
+                    materialStock = scanner.nextInt();
+                    scanner.nextLine();
+
+                    int lastKeyMap = materialMap.size();
+
+                    switch (materialType) {
+                        case "Book" :
+                            materialMap.put(Integer.toString(lastKeyMap + 1), new Book(title, materialStock));
+                            break;
+                        case "Magazine" :
+                            materialMap.put(Integer.toString(lastKeyMap + 1), new Magazine(title, materialStock));
+                            break;
+                        case "Journal" :
+                            materialMap.put(Integer.toString(lastKeyMap + 1), new Journal(title, materialStock));
+                            break;
+                        default:
+                            System.out.println("Failed to add new material!");
+                            break;
+                    }
+
+                    material = "";
+                    Material.displayAllMaterial(materialMap);
+                }
 
                 if (materialMap.get(material) != null){
                     selectedMaterial = materialMap.get(material);
@@ -44,7 +80,7 @@ public class Main {
             }
 
             while (true){
-                System.out.println("----");
+                System.out.println("---- " + selectedMaterial.title + " ---");
                 System.out.println("Do you want to borrow or return :");
                 System.out.println("1. Borrow");
                 System.out.println("2. Return");

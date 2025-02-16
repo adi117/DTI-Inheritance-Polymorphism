@@ -17,6 +17,12 @@ public class Material {
         this.isAvailable = true;
         this.stock = stock;
     }
+
+    public Material(){
+        this.id = UUID.randomUUID();
+        this.title = "";
+    };
+
      public String getMaterialStatus(){
         if (isAvailable){
             return "Borrowed";
